@@ -10,9 +10,10 @@ class buku extends Model
     use HasFactory;
 
     protected $table = "buku";
-    protected $primaryKey = 'kode_buku';
-    public $incrementing = false;
+    // protected $primaryKey = 'kode_buku';
+    // public $incrementing = false;
     protected $fillable = [
+        'id',
         'kode_buku',
         'nama_buku',
         'jumlah'

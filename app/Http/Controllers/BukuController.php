@@ -41,46 +41,36 @@ class BukuController extends Controller
             ->with('success_message', 'Berhasil menambah buku baru');
     }
 
-    public function edit($kode_buku)
+    public function edit($id)
     {
-        // dd($kode_buku);
-        // $buku = buku::where('nama_buku', '=', $kode_buku)->firstOrFail();
-        // $buku = buku::find($kode_buku);
-        // dd($kode_buku);
-        $buku = DB::table('buku')->where('kode_buku', $kode_buku)->first();
-        // dd($buku);
-        return view('buku.edit', [
-            'buku' => $buku,
 
+        $buku = buku::find($id);
+        if (!$buku) return redirect()->route('buku.index')
+            ->with('error_message', 'buku dengan id ' . $id . ' tidak ditemukan');
+        return view('buku.edit', [
+            'buku' => $buku
         ]);
     }
 
     public function destroy($kode_buku)
     {
-        //hapus kode buku by kode_buku
-
-        // dd($kode_buku);
-        // $buku = buku::findOrFail($kode_buku);
         $buku = buku::where('kode_buku', '=', $kode_buku)->first();
         $buku->delete();
         return redirect()->route('buku.index')
             ->with('success_message', 'Berhasil menghapus buku');
     }
 
-    public function update(Request $request, $kode_buku)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'nama_buku' => 'required',
             'jumlah' => 'required',
         ]);
-        // dd($kode_buku);
-        $buku = buku::where('kode_buku', '=', $kode_buku)->first();
-        // dd($buku);
-        $buku->update([
-            'nama_buku' => $request->nama_buku,
-            'jumlah' => $request->jumlah,
-        ]);
+        $buku = buku::find($id);
+        $buku->nama_buku = $request->nama_buku;
+        $buku->jumlah = $request->jumlah;
+        $buku->save();
         return redirect()->route('buku.index')
-            ->with('success_message', 'Berhasil mengubah data buku');
+            ->with('success_message', 'Berhasil mengubah buku');
     }
 }

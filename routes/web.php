@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PDFController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,26 +28,27 @@ Route::get('/home', function () {
     return view('home');
 })->name('home')->middleware('auth');
 
-// Route::get('/buku', [\App\Http\Controllers\BukuController::class, 'index']);
-// Route::resource('buku', \App\Http\Controllers\BukuController::class)
+Route::get('/buku', [\App\Http\Controllers\BukuController::class, 'index']);
+Route::resource('buku', \App\Http\Controllers\BukuController::class)
+    ->middleware('auth');
+Route::get('/create-pdf-file', [PDFController::class, 'index'])->name('pdf.create');
+// Route::get('/buku', [\App\Http\Controllers\BukuController::class, 'index'])->name('buku.index')
 //     ->middleware('auth');
-Route::get('/buku', [\App\Http\Controllers\BukuController::class, 'index'])->name('buku.index')
-    ->middleware('auth');
-Route::put('/buku/{buku}', [\App\Http\Controllers\BukuController::class, 'update'])
-    ->name('buku.update')
-    ->middleware('auth');
-Route::get('/buku/{buku:kode_buku}/edit', [\App\Http\Controllers\BukuController::class, 'edit'])
-    ->name('buku.edit')
-    ->middleware('auth');
-Route::delete('/buku/{buku:kode_buku}', [\App\Http\Controllers\BukuController::class, 'destroy'])
-    ->name('buku.destroy')
-    ->middleware('auth');
-Route::get('/buku/create', [\App\Http\Controllers\BukuController::class, 'create'])
-    ->name('buku.create')
-    ->middleware('auth');
-Route::post('/buku/store', [\App\Http\Controllers\BukuController::class, 'store'])
-    ->name('buku.store')
-    ->middleware('auth');
+// Route::put('/buku/{buku}', [\App\Http\Controllers\BukuController::class, 'update'])
+//     ->name('buku.update')
+//     ->middleware('auth');
+// Route::get('/buku/{buku:id}/edit', [\App\Http\Controllers\BukuController::class, 'edit'])
+//     ->name('buku.edit')
+//     ->middleware('auth');
+// Route::delete('/buku/{buku:kode_buku}', [\App\Http\Controllers\BukuController::class, 'destroy'])
+//     ->name('buku.destroy')
+//     ->middleware('auth');
+// Route::get('/buku/create', [\App\Http\Controllers\BukuController::class, 'create'])
+//     ->name('buku.create')
+//     ->middleware('auth');
+// Route::post('/buku/store', [\App\Http\Controllers\BukuController::class, 'store'])
+//     ->name('buku.store')
+//     ->middleware('auth');
 
 Route::resource('member', \App\Http\Controllers\MemberController::class)
     ->middleware('auth');

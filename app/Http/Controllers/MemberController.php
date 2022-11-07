@@ -53,23 +53,25 @@ class MemberController extends Controller
             ->with('success_message', 'Berhasil menambah data Member');
     }
 
-    public function edit($id)
+    public function edit($Kode_Member)
     {
-        $Member = Member::findOrFail($id);
+        $Member = Member::where('Kode_Member', $Kode_Member)->get();
+        if (!$Member) return redirect()->route('member.index')
+            ->with('error_message', 'Member dengan id ' . $Kode_Member . ' tidak ditemukan');
         return view('member.edit', [
-            'Member' => $Member
+            'member' => $Member
         ]);
     }
 
-    public function destroy($id)
+    public function destroy($Kode_Member)
     {
-        $Member = Member::findOrFail($id);
+        $Member = Member::findOrFail($Kode_Member);
         $Member->delete();
         return redirect()->route('member.index')
             ->with('success_message', 'Berhasil menghapus data Member');
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $Kode_Member)
     {
         $request->validate([
             'Nama_Lengkap' => 'required',
@@ -77,7 +79,7 @@ class MemberController extends Controller
         $array = $request->only([
             'Nama_Lengkap'
         ]);
-        $Member = Member::findOrFail($id);
+        $Member = Member::where('Kode_Member', $Kode_Member)->first();
         $Member->update($array);
         return redirect()->route('member.index')
             ->with('success_message', 'Berhasil mengubah data Member');

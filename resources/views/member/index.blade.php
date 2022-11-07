@@ -33,7 +33,7 @@
                         @foreach($Member as $key => $Membernya)
                             <tr>
                                 <td>{{$key+1}}</td>
-                                <td>{{$Membernya->id}}</td>
+                                <td>{{$Membernya->Kode_Member}}</td>
                                 <td>{{$Membernya->Nama_Lengkap}}</td>
                                 <td>{{$Membernya->Alamat}}</td>
                                 <td>{{$Membernya->No_Telepon}}</td>
@@ -41,10 +41,10 @@
                                 <td>{{$Membernya->Kode_Pinjam}}</td>
                                 <td>{{$Membernya->created_at}}</td>
                                 <td>
-                                    <a href="{{route('member.edit', $Membernya)}}" class="btn btn-primary btn-xs">
+                                    <a href="{{route('member.edit', $Membernya->Kode_Member)}}" class="btn btn-primary btn-xs">
                                         Edit
                                     </a>
-                                    <a href="{{route('member.destroy', $Membernya)}}" onclick="notificationBeforeDelete(event, this)" class="btn btn-danger btn-xs">
+                                    <a href="{{route('member.destroy', $Membernya->Kode_Member)}}" onclick="notificationBeforeDelete(event, this)" class="btn btn-danger btn-xs">
                                         Delete
                                     </a>
                                 </td>

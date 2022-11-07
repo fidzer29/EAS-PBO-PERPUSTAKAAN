@@ -17,8 +17,8 @@
 
                         <div class="form-group">
                             <label for="exampleInputName">Nama Lengkap</label>
-                            <input type="text" class="form-control @error('nama_lengkap') is-invalid @enderror" id="exampleInputName" placeholder="Nama Lengkap" name="nama_lengkap" value="{{$buku->nama_lengkap ?? old('nama_lengkap')}}">
-                            @error('nama_lengkap') <span class="text-danger">{{$message}}</span> @enderror
+                            <input type="text" class="form-control @error('Nama_Lengkap') is-invalid @enderror" id="exampleInputName" placeholder="Nama Lengkap" name="Nama_Lengkap" value="{{$buku->Nama_Lengkap ?? old('Nama_Lengkap')}}">
+                            @error('Nama_Lengkap') <span class="text-danger">{{$message}}</span> @enderror
                         </div>
 
 

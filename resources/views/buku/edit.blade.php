@@ -7,7 +7,6 @@
 @stop
 
 @section('content')
-{{dd($buku['kode_buku'])}}
     <form action="{{route('buku.update', $buku)}}" method="post">
         @method('PUT')
         @csrf
@@ -17,7 +16,7 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="exampleInputName">Nama Buku</label>
-                            <input type="text" class="form-control @error('jumlah') is-invalid @enderror" id="exampleInputName" placeholder="Nama Buku" name="nama_buku" value="{{$buku->nama_buku ?? old('nama_buku')}}">
+                            <input type="text" class="form-control @error('nama_buku') is-invalid @enderror" id="exampleInputName" placeholder="Nama Buku" name="nama_buku" value="{{$buku->nama_buku ?? old('nama_buku')}}">
                             @error('nama_buku') <span class="text-danger">{{$message}}</span> @enderror
                         </div>
                         <div class="form-group">
