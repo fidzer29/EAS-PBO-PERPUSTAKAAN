@@ -6,6 +6,7 @@ use App\Models\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Illuminate\Support\Facades\Log;
 
 class MemberController extends Controller
 {
@@ -29,26 +30,21 @@ class MemberController extends Controller
             'No_Telepon' => 'required',
             'Status' => 'required',
         ]);
-        //kode member auto generate
-
-        // $array = $request->only([
-        //     'Kode_Member',
-        //     'Nama_Lengkap',
-        //     'Alamat',
-        //     'No_Telepon',
-        //     'Status',
-        //     'Kode_Pinjam',
-        // ]);
         $requestCodeMember = '2022' . rand(0, 9999);
-        Member::create([
-            'Kode_Member' => $requestCodeMember,
-            'Nama_Lengkap' => $request->Nama_Lengkap,
-            'Alamat' => $request->Alamat,
-            'No_Telepon' => $request->No_Telepon,
-            'Status' => $request->Status,
+        try {
+            Member::create([
+                'Kode_Member' => $requestCodeMember,
+                'Nama_Lengkap' => $request->Nama_Lengkap,
+                'Alamat' => $request->Alamat,
+                'No_Telepon' => $request->No_Telepon,
+                'Status' => $request->Status,
+            ]);
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return view('member.create')->with('error_message', 'Gagal menambah data Member');
+        }
 
 
-        ]);
 
         return redirect()->route('member.index')
             ->with('success_message', 'Berhasil menambah data Member');

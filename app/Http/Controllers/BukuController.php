@@ -20,6 +20,14 @@ class BukuController extends Controller
             'buku' => $buku,
         ]);
     }
+    public function landing()
+    {
+        // $buku = DB::table('buku')->select("nama_buku")->get();
+        $buku = buku::all();
+        return view('landing.landing', [
+            'buku' => $buku,
+        ]);
+    }
 
     public function create()
     {

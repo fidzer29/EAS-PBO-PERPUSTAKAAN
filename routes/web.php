@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', [\App\Http\Controllers\BukuController::class, 'landing'], function () {
     return view('welcome');
 });
 

@@ -36,6 +36,6 @@ class TestSendEmail implements ShouldQueue
         // $email = new TestHelloEmail();  
         // Mail::to('muhamaddiaz44@gmail.com')->send($email);
         $email = new TestHelloEmail();
-        Mail::to('mochamadhafidhd@gmail.com')->send($email);
+        Mail::to('muhamaddiaz44@gmail.com')->send($email);
     }
 }
