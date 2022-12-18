@@ -16,6 +16,10 @@
                     <span class="fas fa-plus"></span>
                 </a>
 
+                <a href="{{route('pdf.create')}}" class="btn btn-secondary mb-2">
+                    <span class="fas fa-print"></span>
+                </a>
+
                 <table class="table table-hover table-bordered table-stripped" id="example2">
                     <thead>
                         <tr>

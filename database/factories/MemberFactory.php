@@ -13,10 +13,10 @@ class MemberFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'address' => $this->faker->secondaryAddress(),
-        ];
+        // return [
+        //     'name' => $this->faker->sentence,
+        //     'email' => $this->faker->unique()->safeEmail(),
+        //     'address' => $this->faker->secondaryAddress(),
+        // ];
     }
 }

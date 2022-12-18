@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>LAPORAN BUKU PERPUSTAKAAN 2022</title>
+    <title>LAPORAN MEMBER PERPUSTAKAAN 2022</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
@@ -21,20 +21,24 @@
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Kode Buku</th>
-                <th>Nama Buku</th>
-                <th>Jumlah</th>
+                <th>Kode Member</th>
+                <th>Nama Lengkap</th>
+                <th>Alamat</th>
+                <th>No Telepon</th>
+                <th>Status</th>
                 <th>Masuk tanggal</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($buku as $key => $bukunya)
+            @foreach($member as $key => $membernya)
             <tr>
                 <td>{{$key+1}}</td>
-                <td>{{$bukunya->kode_buku}}</td>
-                <td>{{$bukunya->nama_buku}}</td>
-                <td>{{$bukunya->jumlah}}</td>
-                <td>{{$bukunya->created_at}}</td>
+                <td>{{$membernya->Kode_Member}}</td>
+                <td>{{$membernya->Nama_Lengkap}}</td>
+                <td>{{$membernya->Alamat}}</td>
+                <td>{{$membernya->No_Telepon}}</td>
+                <td>{{$membernya->Status}}</td>
+                <td>{{$membernya->created_at}}</td>
             </tr>
             @endforeach
         </tbody>

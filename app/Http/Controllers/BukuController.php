@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\buku;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+// use Spatie\Activitylog\Traits\LogsActivity;
 
 
 class BukuController extends Controller
 {
+
     public function index()
     {
         // $buku = DB::table('buku')->select("nama_buku")->get();

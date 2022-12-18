@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\buku;
+use App\Models\Member;
 use Illuminate\Http\Request;
 
 use PDF;
@@ -17,8 +18,8 @@ class PDFController extends Controller
     public function index()
     {
         $data = [
-            'buku' => buku::ALL(),
-            'title' => 'LAPORAN BUKU PERPUSTAKAAN 2022',
+            'member' => Member::ALL(),
+            'title' => 'LAPORAN MEMBER PERPUSTAKAAN 2022',
             'date' => date('m/d/Y')
         ];
         // dd($buku);
@@ -30,6 +31,6 @@ class PDFController extends Controller
 
         $pdf = PDF::loadView('cetak/cetakPDF', $data);
 
-        return $pdf->download('LaporanBuku.pdf');
+        return $pdf->download('Laporan Member Perpustakaan.pdf');
     }
 }
