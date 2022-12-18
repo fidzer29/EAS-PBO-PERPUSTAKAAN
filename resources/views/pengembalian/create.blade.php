@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Tambah Peminjaman')
+@section('title', 'Pengembalian Peminjaman')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Tambah Peminjaman</h1>
+    <h1 class="m-0 text-dark">Pengembalian Peminjaman</h1>
 @stop
 
 @section('content')
-    <form action="{{route('peminjaman.store')}}" method="post">
+    <form action="{{route('pengembalian.store')}}" method="post">
         @csrf
         <div class="row">
             <div class="col-12">
@@ -42,10 +42,11 @@
                             @enderror
                         </div>
                     </div>
+                     
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Simpan</button>
-                        <a href="{{route('peminjaman.index')}}" class="btn btn-default">
+                        <a href="{{route('pengembalian.index')}}" class="btn btn-default">
                             Batal
                         </a>
                     </div>

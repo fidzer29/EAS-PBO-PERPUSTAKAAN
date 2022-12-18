@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'List peminjaman')
+@section('title', 'List pengembalian')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">List peminjaman</h1>
+    <h1 class="m-0 text-dark">List pengembalian</h1>
 @stop
 
 @section('content')
@@ -12,12 +12,10 @@
             <div class="card">
                 <div class="card-body">
 
-                    <a href="{{route('peminjaman.create')}}" class="btn btn-success mb-2">
-                        <span class="fas fa-plus"></span>
+                    <a href="{{route('pengembalian.create')}}" class="btn btn-primary mb-2">
+                        Pengembalian Buku
                     </a>
-                    <a href="{{route('emailsend')}}" class="btn btn-warning mb-2">
-                        <span class="fas fa-envelope"></span>
-                    </a>
+
                     <table class="table table-hover table-bordered table-stripped" id="example2">
                         <thead>
                         <tr>
@@ -30,16 +28,16 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($peminjaman as $key => $peminjamannya)
+                        @foreach($pengembalian as $key => $pengembalianya)
                             <tr>
                                 <td>{{$key+1}}</td>
-                                <td>{{$peminjamannya->Kode_Member}}</td>
-                                <td>{{$peminjamannya->Kode_Buku}}</td>
-                                <td>{{$peminjamannya->Tanggal_Pinjam}}</td>
-                                <td>{{$peminjamannya->Tanggal_Kembali}}</td>
+                                <td>{{$pengembalianya->Kode_Member}}</td>
+                                <td>{{$pengembalianya->Kode_Buku}}</td>
+                                <td>{{$pengembalianya->Tanggal_Pinjam}}</td>
+                                <td>{{$pengembalianya->Tanggal_Kembali}}</td>
                                 <td>
-                                    <span class="badge badge-danger p-2">
-                                        Dipinjam
+                                    <span class="badge badge-success p-2">
+                                        DiKembalikan
                                     </span>
                                 
                                 </td> 

@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class peminjaman extends Model
+class pengembalian extends Model
 {
     use HasFactory;
 
-    protected $table = "peminjaman";
+    protected $table = "pengembalian";
     protected $fillable = [
         'Kode_Member',
         'Kode_Buku',

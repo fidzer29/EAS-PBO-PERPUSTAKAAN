@@ -25,6 +25,12 @@ Auth::routes();
 Route::resource('users', \App\Http\Controllers\UserController::class)
     ->middleware('auth');
 
+Route::resource('peminjaman', \App\Http\Controllers\PeminjamanController::class)
+    ->middleware('auth');
+
+Route::resource('pengembalian', \App\Http\Controllers\PengembalianController::class)
+    ->middleware('auth');
+
 Route::get('/get', [\App\Http\Controllers\UserController::class, 'ambil']);
 
 Route::get('/home', function () {

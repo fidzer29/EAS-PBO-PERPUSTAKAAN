@@ -245,8 +245,8 @@ return [
             'icon'  => 'fa fa-shopping-cart',
         ],
         [
-            'text' => 'Pengembaliaan',
-            'url'  => '/pengembaliaan',
+            'text' => 'Pengembalian',
+            'url'  => '/pengembalian',
             'icon'  => 'fa fa-cart-arrow-down',
         ],
     ],
