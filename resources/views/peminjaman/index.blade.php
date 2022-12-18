@@ -18,6 +18,7 @@
                     <a href="{{route('emailsend')}}" class="btn btn-warning mb-2">
                         <span class="fas fa-envelope"></span>
                     </a>
+                    
                     <table class="table table-hover table-bordered table-stripped" id="example2">
                         <thead>
                         <tr>

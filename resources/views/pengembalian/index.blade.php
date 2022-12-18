@@ -12,10 +12,13 @@
             <div class="card">
                 <div class="card-body">
 
-                    <a href="{{route('pengembalian.create')}}" class="btn btn-primary mb-2">
-                        Pengembalian Buku
+                    <a href="{{route('peminjaman.create')}}" class="btn btn-success mb-2">
+                        <span class="fas fa-plus"></span>
                     </a>
-
+                    <a href="{{route('emailsend')}}" class="btn btn-warning mb-2">
+                        <span class="fas fa-envelope"></span>
+                    </a>
+                    
                     <table class="table table-hover table-bordered table-stripped" id="example2">
                         <thead>
                         <tr>

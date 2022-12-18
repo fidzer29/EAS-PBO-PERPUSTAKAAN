@@ -38,7 +38,7 @@ class PeminjamanController extends Controller
             ->with('error_message', 'Buku dengan kode ' . $request->Kode_Buku . ' tidak tersedia');
         }
         
-        $requestCodePeminjaman = 'PM-2022' . rand(0, 99);
+        $requestCodePeminjaman = 'PM-2022' . rand(0, 9999);
         peminjaman::create([
             'Kode_Pinjam' => $requestCodePeminjaman,
             'Kode_Member' => $request->Kode_Member,
@@ -68,6 +68,8 @@ class PeminjamanController extends Controller
             'peminjaman' => $peminjaman
         ]);
     }
+
+    //functiom untuk meghapus data pinjam
     public function destroy($Kode_Pinjam)
     {
         $peminjaman = peminjaman::where('Kode_Pinjam', '=', $Kode_Pinjam)->first();
@@ -75,6 +77,8 @@ class PeminjamanController extends Controller
         return redirect()->route('peminjaman.index')
             ->with('success_message', 'Berhasil menghapus peminjaman');
     }
+
+    //function untuk melakukan update data
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -93,12 +97,4 @@ class PeminjamanController extends Controller
             ->with('success_message', 'Berhasil mengubah peminjaman');
     }
 
-    // public function kembali(Request $request, $id)
-    // {
-    //     $peminjaman = peminjaman::find($id);
-    //     $peminjaman->Tanggal_Kembali = $request->Tanggal_Kembali;
-    //     $peminjaman->save();
-    //     return redirect()->route('peminjaman.index')
-    //         ->with('success_message', 'Berhasil mengubah peminjaman');
-    // }
 }
