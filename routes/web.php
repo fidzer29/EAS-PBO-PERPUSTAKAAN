@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PDFController;
+// use App\Http\Controllers\TestQueueEmails;
+// use App\Http\Controllers\MailController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,7 +34,10 @@ Route::get('/home', function () {
 Route::get('/buku', [\App\Http\Controllers\BukuController::class, 'index']);
 Route::resource('buku', \App\Http\Controllers\BukuController::class)
     ->middleware('auth');
+
 Route::get('/create-pdf-file', [PDFController::class, 'index'])->name('pdf.create');
+
+
 // Route::get('/buku', [\App\Http\Controllers\BukuController::class, 'index'])->name('buku.index')
 //     ->middleware('auth');
 // Route::put('/buku/{buku}', [\App\Http\Controllers\BukuController::class, 'update'])
@@ -52,3 +58,7 @@ Route::get('/create-pdf-file', [PDFController::class, 'index'])->name('pdf.creat
 
 Route::resource('member', \App\Http\Controllers\MemberController::class)
     ->middleware('auth');
+
+Route::get('sending-queue-emails', [\App\Http\Controllers\TestQueueEmails::class, 'sendTestEmails'])->name('emailsend');
+
+//Route::get('kirim-email', 'App\Http\Controllers\MailController@index');

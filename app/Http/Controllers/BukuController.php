@@ -11,7 +11,6 @@ class BukuController extends Controller
 {
     public function index()
     {
-
         // $buku = DB::table('buku')->select("nama_buku")->get();
         $buku = buku::all();
         // dd($buku);
@@ -54,8 +53,9 @@ class BukuController extends Controller
 
     public function destroy($kode_buku)
     {
-        $buku = buku::where('kode_buku', '=', $kode_buku)->first();
-        $buku->delete();
+        $buku = buku::find($kode_buku);
+
+        if ($buku) $buku->delete();
         return redirect()->route('buku.index')
             ->with('success_message', 'Berhasil menghapus buku');
     }

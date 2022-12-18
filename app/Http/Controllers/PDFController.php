@@ -18,7 +18,7 @@ class PDFController extends Controller
     {
         $data = [
             'buku' => buku::ALL(),
-            'title' => 'Daftar Data Buku',
+            'title' => 'LAPORAN BUKU PERPUSTAKAAN 2022',
             'date' => date('m/d/Y')
         ];
         // dd($buku);

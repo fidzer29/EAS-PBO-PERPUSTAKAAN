@@ -55,7 +55,7 @@ class MemberController extends Controller
 
     public function edit($Kode_Member)
     {
-        $Member = Member::where('Kode_Member', $Kode_Member)->get();
+        $Member = Member::where('Kode_Member', $Kode_Member)->first();
         if (!$Member) return redirect()->route('member.index')
             ->with('error_message', 'Member dengan id ' . $Kode_Member . ' tidak ditemukan');
         return view('member.edit', [

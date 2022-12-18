@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Perpustakaan',
+    'title' => 'Perpustakaan DFH',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Perpustakaan</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
-    'logo_img_xl' => null,
-    'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo' => '<b>Perpustakaan DFH</b>',
+    // 'logo_img' => 'DFH.png',
+    // 'logo_img_class' => 'brand-image img-circle elevation-3',
+    // 'logo_img_xl' => null,
+    // 'logo_img_xl_class' => 'brand-image-xs',
+    // 'logo_img_alt' => 'AdminLTE',
 
     /*
     |--------------------------------------------------------------------------
@@ -66,7 +66,7 @@ return [
 
     'usermenu_enabled' => true,
     'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-primary',
+    'usermenu_header_class' => 'bg-secondary',
     'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
@@ -101,7 +101,7 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-primary',
+    'classes_auth_card' => 'card-outline card-secondary',
     'classes_auth_header' => '',
     'classes_auth_body' => '',
     'classes_auth_footer' => '',
@@ -237,12 +237,17 @@ return [
         [
             'text' => 'Member',
             'url'  => '/member',
-            'icon'  => 'fa fa-users',
+            'icon'  => 'fa fa-user-plus',
         ],
         [
             'text' => 'Peminjaman',
             'url'  => '/peminjaman',
-            'icon'  => 'fa fa-book',
+            'icon'  => 'fa fa-shopping-cart',
+        ],
+        [
+            'text' => 'Pengembaliaan',
+            'url'  => '/pengembaliaan',
+            'icon'  => 'fa fa-cart-arrow-down',
         ],
     ],
 
