@@ -21,9 +21,10 @@
                                 <span class="text-danger">{{$message}}</span> 
                             @enderror
                         </div>
+                            <div id="reader" width="600px"></div>
                         <div class="form-group">
                             <label for="exampleInputName">Kode Buku</label>
-                            <input type="text" class="form-control @error('Kode_Buku') is-invalid @enderror" id="exampleInputName" placeholder="Kode Buku" name="Kode_Buku" value="{{old('Kode_Buku')}}">
+                            <input type="text" class="form-control @error('Kode_Buku') is-invalid @enderror" id="result" placeholder="Kode Buku" name="Kode_Buku" value="{{old('Kode_Buku')}}">
                             @error('Kode_Buku') 
                                 <span class="text-danger">{{$message}}</span> 
                             @enderror
@@ -52,5 +53,24 @@
                 </div>
             </div>
         </div>
-        
+        <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+        <script>
+            function onScanSuccess(decodedText, decodedResult) {
+  // handle the scanned code as you like, for example:
+//   console.log(`Code matched = ${decodedText}`, decodedResult);
+  $("#result").val(decodedText);
+}
+
+function onScanFailure(error) {
+  // handle scan failure, usually better to ignore and keep scanning.
+  // for example:
+  console.warn(`Code scan error = ${error}`);
+}
+
+let html5QrcodeScanner = new Html5QrcodeScanner(
+  "reader",
+  { fps: 10, qrbox: {width: 250, height: 250} },
+  /* verbose= */ false);
+html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+        </script>
 @stop
